@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dark Mode Example</title>
+    <style>
+        /* Light mode styles */
+        body {
+            background-color: white;
+            color: black;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode-red {
+            background-color: darkred;
+            color: white;
+        }
+
+        body.dark-mode-green {
+            background-color: darkgreen;
+            color: white;
+        }
+
+        body.dark-mode-orange {
+            background-color: darkorange;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dark Mode Example</h1>
+
+    <input type="radio" name="color" id="red" onchange="changeColor()" /> Red
+    <input type="radio" name="color" id="green" onchange="changeColor()" /> Green
+    <input type="radio" name="color" id="orange" onchange="changeColor()" /> Orange
+
+    <br><br>
+
+    <input type="checkbox" id="darkModeSwitch" onchange="toggleDarkMode()" /> Enable Dark Mode
+
+    <script>
+        function changeColor() {
+            var selectedColor = document.querySelector('input[name="color"]:checked').id;
+            var body = document.querySelector('body');
+            body.className = "dark-mode-" + selectedColor;
+        }
+
+        function toggleDarkMode() {
+            var darkModeSwitch = document.getElementById('darkModeSwitch');
+            var body = document.querySelector('body');
+            body.classList.toggle('dark-mode', darkModeSwitch.checked);
+        }
+    </script>
+</body>
+</html>
